@@ -1,0 +1,53 @@
+{
+  "name": "vue-admin-layout",
+  "version": "0.1.0",
+  "scripts": {
+    "start": "npm run serve",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
+  },
+  "dependencies": {
+    "@ckangwen/components": "^0.2.20",
+    "axios": "^0.19.2",
+    "core-js": "^3.6.5",
+    "element-ui": "^2.13.2",
+    "js-cookie": "^2.2.1",
+    "lodash": "^4.17.15",
+    "lowdb": "^1.0.0",
+    "nprogress": "^0.2.0",
+    "vue": "^2.6.11",
+    "vue-i18n": "^8.20.0",
+    "vue-router": "^3.2.0",
+    "vuex": "^3.4.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.4.0",
+    "@vue/cli-plugin-eslint": "~4.4.0",
+    "@vue/cli-plugin-router": "~4.4.0",
+    "@vue/cli-plugin-vuex": "~4.4.0",
+    "@vue/cli-service": "~4.4.0",
+    "@vue/eslint-config-standard": "^5.1.2",
+    "axios-mock-adapter": "^1.18.1",
+    "babel-eslint": "^10.1.0",
+    "cz-conventional-changelog": "3.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^6.2.2",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "svg-sprite-loader": "^5.0.0",
+    "vue-codemirror": "^4.0.6",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "license": "MIT",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

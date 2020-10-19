@@ -1,0 +1,27 @@
+// 主题名称
+$theme-name: 'dark';
+// 主题背景颜色
+$theme-bg-color: #001529;
+// 主题背景图片遮罩
+$theme-bg-mask: rgba(#000, 0);
+$color-text-normal: #fff;
+
+// main__container
+$theme-container-background-color: #fff;
+$theme-container-header-footer-background-color: #FFF;
+// main__page-header
+$theme-page-header-background-color: #fff;
+
+// 顶栏和侧边栏中展开的菜单 hover 状态下
+$theme-menu-item-color: hsla(0,0%,100%,.65);
+$theme-menu-item-color-hover: #fff;
+$theme-menu-item-background-color: $theme-bg-color;
+$theme-menu-item-background-color-hover:#1890ff;
+$theme-menu-item-color-focus: #fff;
+$theme-menu-item-background-color-focus: #252a3d;
+$theme-menu-item-color-active: #fff;
+$theme-menu-item-background-color-active: hsla(0,0%,100%,.5);
+$theme-menu-item-border-color: $theme-menu-item-background-color;
+
+// tag-view
+$theme-tag-view-border-color: #dcdfe6;

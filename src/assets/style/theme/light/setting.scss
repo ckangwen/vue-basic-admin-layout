@@ -1,0 +1,26 @@
+// 主题名称
+$theme-name: 'light';
+// 主题背景颜色
+$theme-bg-color: #ebf1f6;
+// 主题背景图片遮罩
+$theme-bg-mask: rgba(#000, 0);
+$color-text-normal: #606266;
+
+// container组件
+$theme-container-background-color: #fff;
+$theme-container-header-footer-background-color: #FFF;
+$theme-page-header-background-color: #fff;
+
+// 顶栏和侧边栏中展开的菜单 hover 状态下
+$theme-menu-item-color: $color-text-normal;
+$theme-menu-item-color-hover: #2f74ff;
+$theme-menu-item-background-color: $theme-bg-color;
+$theme-menu-item-background-color-hover: #ecf5ff;
+$theme-menu-item-color-focus: #2f74ff;
+$theme-menu-item-background-color-focus: #ecf5ff;
+$theme-menu-item-color-active: #2f74ff;
+$theme-menu-item-background-color-active: #ecf5ff;
+$theme-menu-item-border-color: $theme-menu-item-background-color;
+
+// tag-view
+$theme-tag-view-border-color: #dcdfe6;
