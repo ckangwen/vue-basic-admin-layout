@@ -1,8 +1,9 @@
 import lowdb from 'lowdb'
 import LocalStorage from 'lowdb/adapters/LocalStorage'
 import cloneDeep from 'lodash/cloneDeep'
+import { ns } from '@/config'
 
-const adapter = new LocalStorage('tp-layout')
+const adapter = new LocalStorage(ns)
 const db = lowdb(adapter)
 
 db.defaults({

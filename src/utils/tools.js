@@ -8,3 +8,10 @@ export const showTitle = (title, vm) => {
   }
   return title
 }
+
+export const __DEV__ = process.env.NODE_ENV !== 'production'
+
+export const isEmptyObj = obj => {
+  if (!obj) return true
+  return Object.keys(obj).length === 0
+}

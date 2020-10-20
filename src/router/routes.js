@@ -1,6 +1,6 @@
 import Home from '../views/Home.vue'
-// import Layout from '@/components/Hello'
 import Layout from '@/layout/Layout'
+import { ALL_ROLE, USER_ROLE, ADMIN_ROLE } from '../utils/constants'
 
 export const mainRoutes = [
   {
@@ -13,7 +13,8 @@ export const mainRoutes = [
         name: 'Home',
         component: Home,
         meta: {
-          title: '首页'
+          title: '首页',
+          roles: ALL_ROLE
         }
       }
     ]
@@ -26,7 +27,10 @@ export const mainRoutes = [
         path: 'index',
         component: () => import('@/views/theme'),
         name: 'Theme',
-        meta: { title: '主题' }
+        meta: {
+          title: '主题',
+          roles: ALL_ROLE
+        }
       }
     ]
   },
@@ -35,7 +39,8 @@ export const mainRoutes = [
     name: 'Page7',
     component: Layout,
     meta: {
-      title: 'Page7'
+      title: 'user only',
+      roles: USER_ROLE
     },
     children: [
       {
@@ -61,14 +66,16 @@ export const mainRoutes = [
     name: 'Page4',
     component: Layout,
     meta: {
-      title: 'Page4'
+      title: 'Page4',
+      roles: ALL_ROLE
     },
     children: [
       {
         path: 'page5',
         name: 'page4-page5',
         meta: {
-          title: 'page4-page5'
+          title: 'user only',
+          roles: USER_ROLE
         },
         component: () => import('@/views/page/Page4')
       },
@@ -76,7 +83,8 @@ export const mainRoutes = [
         path: 'page6',
         name: 'page4-page6',
         meta: {
-          title: 'page4-page6'
+          title: 'admin only',
+          roles: ADMIN_ROLE
         },
         component: () => import('@/views/page/Page6')
       }

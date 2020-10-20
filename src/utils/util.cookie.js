@@ -1,8 +1,7 @@
 import Cookies from 'js-cookie'
+import { ns } from '@/config'
 
 const cookies = {}
-
-const ns = 'app'
 
 /**
  * @description 存储 cookie 值

@@ -12,12 +12,12 @@ export default {
   name: 'Home',
   computed: {
     userInfo () {
-      return this.$store.state.user.userInfo
+      return this.$store.state.account.userInfo
     }
   },
   methods: {
     async logout () {
-      await this.$store.dispatch('user/logout')
+      await this.$store.dispatch('account/logout')
       this.$router.push(`/login?redirect=${this.$route.fullPath}`)
     }
   }

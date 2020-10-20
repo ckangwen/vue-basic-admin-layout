@@ -1,15 +1,16 @@
 import { Message, MessageBox } from 'element-ui'
 import Cookies from '@/utils/util.cookie'
-import { login, logout, getInfo } from '@/api/user'
+import { login, logout, getInfo } from '@/api/login'
 import router from '@/router'
 import {
   SET_USERINFO,
   SET_TOKEN
 } from '@/store/mutation-types'
+import { getDB } from '@/utils/db'
 
 const state = {
   token: Cookies.get('token'),
-  userInfo: ''
+  userInfo: getDB('user')
 }
 
 const mutations = {
@@ -40,21 +41,23 @@ const actions = {
         })
     })
   },
-  async logout ({ commit, dispatch }, { confirm = false }) {
+  async logout ({ state, commit, dispatch }, { confirm = false }) {
     const handleLogout = () => {
       return new Promise((resolve, reject) => {
-        logout(state.token)
+        logout({ token: state.token })
           .then(async () => {
             commit(SET_USERINFO, {})
-            commit(SET_TOKEN, {})
+            commit(SET_TOKEN, null)
             Cookies.remove('token')
             await dispatch('db/set', {
               path: 'user',
-              value: null
+              value: {}
             }, { root: true })
+            commit('permission/SET_HASLOADROUTES', false, { root: true })
             router.push({
               name: 'login'
             })
+            resolve()
           })
           .catch(err => {
             reject(err)
@@ -80,18 +83,18 @@ const actions = {
   },
   getInfo ({ state, dispatch, commit }) {
     return new Promise((resolve, reject) => {
-      getInfo(state.token)
+      getInfo({ token: state.token })
         .then(async (data) => {
           if (!data) {
             reject(new Error('Verification failed, please Login again.'))
           }
 
-          commit('SET_USERINFO', data.userInfo)
+          commit('SET_USERINFO', data)
           await dispatch(
             'db/set',
             {
               path: 'user',
-              value: data.userInfo
+              value: data
             },
             { root: true }
           )
@@ -100,6 +103,9 @@ const actions = {
           reject(error)
         })
     })
+  },
+  resetToken ({ state, commit }) {
+    commit('SET_TOKEN', null)
   },
   load ({ state, commit, dispatch }) {
     // eslint-disable-next-line no-async-promise-executor

@@ -30,7 +30,7 @@ export default {
   data () {
     return {
       settings: Object.assign(layoutSettings, {
-        routes: mainRoutes.map(item => omit(item, ['component']))
+        routes: this.$store.state.permission.mainRoutes.map(item => omit(item, ['component']))
       }),
       collapsed: false,
       menuAttrs: {
